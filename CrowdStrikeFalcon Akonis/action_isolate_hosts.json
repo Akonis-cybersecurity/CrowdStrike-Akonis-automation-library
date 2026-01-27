@@ -20,6 +20,6 @@
   "docker_parameters": "isolate_hosts",
   "name": "Isolate hosts",
   "results": {},
-  "uuid": "3140f928-a766-45c3-80b5-ab92444629e8",
+  "uuid": "2ab45e20-efa0-4483-a6d3-5cbfa4bd5621",
   "slug": "isolate_endpoints"
 }

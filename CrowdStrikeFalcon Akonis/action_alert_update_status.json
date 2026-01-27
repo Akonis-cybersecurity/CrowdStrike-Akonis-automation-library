@@ -31,6 +31,6 @@
   "docker_parameters": "alert_update_status",
   "name": "Update alert status",
   "results": {},
-  "uuid": "bc725034-0cbb-49e1-9113-1106ff35f03f",
+  "uuid": "3d8c3167-d059-4d12-958e-6071572c0b41",
   "slug": "update_alert_status"
 }

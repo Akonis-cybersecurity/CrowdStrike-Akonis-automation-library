@@ -25,6 +25,6 @@
   "docker_parameters": "alert_add_comment",
   "name": "Add new comment to alert",
   "results": {},
-  "uuid": "8aefa1b5-758e-4039-918d-87855c8718ab",
+  "uuid": "b85ef7ca-7be9-4345-97df-fbb0c3f63353",
   "slug": "add_new_comment_to_alert"
 }

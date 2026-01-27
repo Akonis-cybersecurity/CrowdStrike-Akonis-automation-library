@@ -1,7 +1,7 @@
 {
   "name": "Crowdstrike Falcon devices",
   "description": "Fetch Crowdstrike Falcon device assets",
-  "uuid": "adcd0095-0f3d-4699-8621-158977b6c2c3",
+  "uuid": "7446b8f3-90bc-4a9a-a474-4bb9df35d07a",
   "docker_parameters": "crowdstrike_falcon_device_asset_connector",
   "type": "asset",
   "capability": "device",
