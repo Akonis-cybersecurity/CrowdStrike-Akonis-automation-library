@@ -1,0 +1,36 @@
+{
+  "arguments": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "ids": {
+        "type": "array",
+        "description": "List of indicator IDs to retrieve.",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "ids"
+    ],
+    "title": "Arguments",
+    "type": "object"
+  },
+  "description": "Get Indicators by IDs.",
+  "docker_parameters": "ioc_get_indicators",
+  "name": "Get Indicators",
+  "results": {
+    "type": "object",
+    "properties": {
+      "indicators": {
+        "type": "array",
+        "description": "List of indicator details.",
+        "items": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "uuid": "8cfb7bd8-8c59-42d8-9976-9f212892c5d8",
+  "slug": "get_indicators"
+}

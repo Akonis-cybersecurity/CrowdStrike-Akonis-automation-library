@@ -1,0 +1,36 @@
+{
+  "arguments": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "ids": {
+        "type": "array",
+        "description": "List of action IDs to retrieve.",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "ids"
+    ],
+    "title": "Arguments",
+    "type": "object"
+  },
+  "description": "Get Actions by IDs.",
+  "docker_parameters": "ioc_get_actions",
+  "name": "Get IOC Actions",
+  "results": {
+    "type": "object",
+    "properties": {
+      "actions": {
+        "type": "array",
+        "description": "List of action details.",
+        "items": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "uuid": "dfdcd29e-dfd7-4f4e-9e65-f6f08d2fc108",
+  "slug": "get_ioc_actions"
+}

@@ -1,0 +1,36 @@
+{
+  "arguments": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "resources": {
+        "type": "array",
+        "description": "List of prevention policy objects to create. Each object should contain name, description, platform_name, etc.",
+        "items": {
+          "type": "object"
+        }
+      }
+    },
+    "required": [
+      "resources"
+    ],
+    "title": "Arguments",
+    "type": "object"
+  },
+  "description": "Create Prevention Policies by specifying details about the policy to create.",
+  "docker_parameters": "create_prevention_policies",
+  "name": "Create Prevention Policies",
+  "results": {
+    "type": "object",
+    "properties": {
+      "policies": {
+        "type": "array",
+        "description": "List of created prevention policies.",
+        "items": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "uuid": "b040ed2d-2c0c-4f9e-882f-97cdd7a04fdd",
+  "slug": "create_prevention_policies"
+}

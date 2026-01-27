@@ -1,0 +1,36 @@
+{
+  "arguments": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "ids": {
+        "type": "array",
+        "description": "List of prevention policy IDs to retrieve.",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "ids"
+    ],
+    "title": "Arguments",
+    "type": "object"
+  },
+  "description": "Retrieve a set of Prevention Policies by specifying their IDs.",
+  "docker_parameters": "get_prevention_policies",
+  "name": "Get Prevention Policies",
+  "results": {
+    "type": "object",
+    "properties": {
+      "policies": {
+        "type": "array",
+        "description": "List of prevention policy details.",
+        "items": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "uuid": "70e62ad3-1739-4e70-bf6f-83ad569d5684",
+  "slug": "get_prevention_policies"
+}

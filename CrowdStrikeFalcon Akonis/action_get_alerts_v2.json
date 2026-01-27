@@ -1,0 +1,36 @@
+{
+  "arguments": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "ids": {
+        "type": "array",
+        "description": "List of composite alert IDs to retrieve.",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "ids"
+    ],
+    "title": "Arguments",
+    "type": "object"
+  },
+  "description": "Retrieve all alerts given their composite IDs.",
+  "docker_parameters": "get_alerts_v2",
+  "name": "Get Alerts V2",
+  "results": {
+    "type": "object",
+    "properties": {
+      "alerts": {
+        "type": "array",
+        "description": "List of alert details.",
+        "items": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "uuid": "6a8cc908-c563-400b-9d60-c78cf30f6abf",
+  "slug": "get_alerts_v2"
+}

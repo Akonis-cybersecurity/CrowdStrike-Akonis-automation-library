@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "ids": {
+        "type": "array",
+        "description": "List of indicator IDs to delete.",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "ids"
+    ],
+    "title": "Arguments",
+    "type": "object"
+  },
+  "description": "Delete Indicators by IDs.",
+  "docker_parameters": "ioc_delete_indicators",
+  "name": "Delete Indicators",
+  "results": {},
+  "uuid": "ed581520-1d3f-4260-a3d1-8ee74dbc0b4d",
+  "slug": "delete_indicators"
+}

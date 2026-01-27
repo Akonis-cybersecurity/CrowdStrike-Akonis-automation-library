@@ -1,0 +1,43 @@
+{
+  "arguments": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "filter": {
+        "type": "string",
+        "description": "FQL filter expression to search devices (e.g. platform_name:'Windows')."
+      },
+      "sort": {
+        "type": "string",
+        "description": "Sort expression (e.g. 'hostname|asc')."
+      },
+      "limit": {
+        "type": "integer",
+        "description": "Maximum number of results to return."
+      },
+      "offset": {
+        "type": "string",
+        "description": "Pagination offset."
+      }
+    },
+    "required": [],
+    "title": "Arguments",
+    "type": "object"
+  },
+  "description": "Search for hosts in your environment by platform, hostname, IP, and other criteria.",
+  "docker_parameters": "query_devices_by_filter",
+  "name": "Query Devices By Filter",
+  "results": {
+    "type": "object",
+    "properties": {
+      "device_ids": {
+        "type": "array",
+        "description": "List of matching device IDs.",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "uuid": "fd407e07-efde-4ac7-b3e7-481075718de3",
+  "slug": "query_devices_by_filter"
+}

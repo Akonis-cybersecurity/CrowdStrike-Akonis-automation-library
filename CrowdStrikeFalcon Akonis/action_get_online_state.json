@@ -1,0 +1,36 @@
+{
+  "arguments": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "ids": {
+        "type": "array",
+        "description": "List of host agent IDs to get online state for.",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "ids"
+    ],
+    "title": "Arguments",
+    "type": "object"
+  },
+  "description": "Get the online status for one or more hosts by specifying each host's unique ID.",
+  "docker_parameters": "get_online_state",
+  "name": "Get Online State",
+  "results": {
+    "type": "object",
+    "properties": {
+      "states": {
+        "type": "array",
+        "description": "List of host online state details.",
+        "items": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "uuid": "5f1c83b9-5fd9-4471-9ebb-7eff65ec7db2",
+  "slug": "get_online_state"
+}

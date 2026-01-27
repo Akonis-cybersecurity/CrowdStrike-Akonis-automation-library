@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "ids": {
+        "type": "array",
+        "description": "List of prevention policy IDs to delete.",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "ids"
+    ],
+    "title": "Arguments",
+    "type": "object"
+  },
+  "description": "Delete a set of Prevention Policies by specifying their IDs.",
+  "docker_parameters": "delete_prevention_policies",
+  "name": "Delete Prevention Policies",
+  "results": {},
+  "uuid": "31f10154-9992-41af-86d7-5f1121c8e1ae",
+  "slug": "delete_prevention_policies"
+}

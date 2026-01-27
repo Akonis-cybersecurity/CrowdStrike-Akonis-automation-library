@@ -1,0 +1,36 @@
+{
+  "arguments": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "ids": {
+        "type": "array",
+        "description": "List of incident IDs to retrieve.",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "ids"
+    ],
+    "title": "Arguments",
+    "type": "object"
+  },
+  "description": "Get details on incidents by providing incident IDs.",
+  "docker_parameters": "get_incidents",
+  "name": "Get Incidents",
+  "results": {
+    "type": "object",
+    "properties": {
+      "incidents": {
+        "type": "array",
+        "description": "List of incident details.",
+        "items": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "uuid": "18f0e733-b279-41a0-919e-3fe805c2d434",
+  "slug": "get_incidents"
+}

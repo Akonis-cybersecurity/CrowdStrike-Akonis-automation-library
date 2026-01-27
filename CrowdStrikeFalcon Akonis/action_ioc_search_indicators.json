@@ -1,0 +1,43 @@
+{
+  "arguments": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "filter": {
+        "type": "string",
+        "description": "FQL filter expression to search indicators."
+      },
+      "sort": {
+        "type": "string",
+        "description": "Sort expression (e.g. 'modified_on|desc')."
+      },
+      "limit": {
+        "type": "integer",
+        "description": "Maximum number of results to return."
+      },
+      "offset": {
+        "type": "string",
+        "description": "Pagination offset."
+      }
+    },
+    "required": [],
+    "title": "Arguments",
+    "type": "object"
+  },
+  "description": "Search for Indicators.",
+  "docker_parameters": "ioc_search_indicators",
+  "name": "Search Indicators",
+  "results": {
+    "type": "object",
+    "properties": {
+      "indicator_ids": {
+        "type": "array",
+        "description": "List of matching indicator IDs.",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "uuid": "37870872-e1a4-4993-92ab-caba661e6750",
+  "slug": "search_indicators"
+}

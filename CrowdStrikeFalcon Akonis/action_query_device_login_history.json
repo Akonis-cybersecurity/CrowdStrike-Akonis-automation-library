@@ -1,0 +1,36 @@
+{
+  "arguments": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "ids": {
+        "type": "array",
+        "description": "List of device IDs to retrieve login history for.",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "ids"
+    ],
+    "title": "Arguments",
+    "type": "object"
+  },
+  "description": "Retrieve details about recent login sessions for a set of devices.",
+  "docker_parameters": "query_device_login_history",
+  "name": "Query Device Login History",
+  "results": {
+    "type": "object",
+    "properties": {
+      "history": {
+        "type": "array",
+        "description": "List of login history records.",
+        "items": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "uuid": "157aa15e-fe78-4bd7-9b79-372d587532fe",
+  "slug": "query_device_login_history"
+}

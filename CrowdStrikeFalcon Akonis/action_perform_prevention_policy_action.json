@@ -1,0 +1,45 @@
+{
+  "arguments": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "action_name": {
+        "type": "string",
+        "description": "Action to perform on the prevention policies.",
+        "enum": [
+          "enable",
+          "disable"
+        ]
+      },
+      "ids": {
+        "type": "array",
+        "description": "List of prevention policy IDs to apply action to.",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "action_name",
+      "ids"
+    ],
+    "title": "Arguments",
+    "type": "object"
+  },
+  "description": "Perform the specified action on the Prevention Policies specified in the request.",
+  "docker_parameters": "perform_prevention_policy_action",
+  "name": "Perform Prevention Policy Action",
+  "results": {
+    "type": "object",
+    "properties": {
+      "resources": {
+        "type": "array",
+        "description": "Action result resources.",
+        "items": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "uuid": "82a975c7-b8ad-4386-aa05-1b69ea52c3f5",
+  "slug": "perform_prevention_policy_action"
+}

@@ -1,0 +1,36 @@
+{
+  "arguments": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "resources": {
+        "type": "array",
+        "description": "List of prevention policy objects to update. Each object should contain id and the fields to update.",
+        "items": {
+          "type": "object"
+        }
+      }
+    },
+    "required": [
+      "resources"
+    ],
+    "title": "Arguments",
+    "type": "object"
+  },
+  "description": "Update Prevention Policies by specifying the ID of the policy and details to update.",
+  "docker_parameters": "update_prevention_policies",
+  "name": "Update Prevention Policies",
+  "results": {
+    "type": "object",
+    "properties": {
+      "policies": {
+        "type": "array",
+        "description": "List of updated prevention policies.",
+        "items": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "uuid": "fedff2b3-41cd-4e4f-a611-f61e425dd101",
+  "slug": "update_prevention_policies"
+}

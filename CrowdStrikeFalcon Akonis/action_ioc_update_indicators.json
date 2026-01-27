@@ -1,0 +1,36 @@
+{
+  "arguments": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "indicators": {
+        "type": "array",
+        "description": "List of indicator objects to update. Each object should contain id and the fields to update.",
+        "items": {
+          "type": "object"
+        }
+      }
+    },
+    "required": [
+      "indicators"
+    ],
+    "title": "Arguments",
+    "type": "object"
+  },
+  "description": "Update Indicators.",
+  "docker_parameters": "ioc_update_indicators",
+  "name": "Update Indicators",
+  "results": {
+    "type": "object",
+    "properties": {
+      "indicators": {
+        "type": "array",
+        "description": "List of updated indicators.",
+        "items": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "uuid": "602bcddc-f951-4cf2-ab0c-a148caae261d",
+  "slug": "update_indicators"
+}

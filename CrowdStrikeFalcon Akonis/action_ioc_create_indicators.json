@@ -1,0 +1,36 @@
+{
+  "arguments": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "indicators": {
+        "type": "array",
+        "description": "List of indicator objects to create. Each object should contain type, value, action, platforms, severity, etc.",
+        "items": {
+          "type": "object"
+        }
+      }
+    },
+    "required": [
+      "indicators"
+    ],
+    "title": "Arguments",
+    "type": "object"
+  },
+  "description": "Create Indicators.",
+  "docker_parameters": "ioc_create_indicators",
+  "name": "Create Indicators",
+  "results": {
+    "type": "object",
+    "properties": {
+      "indicators": {
+        "type": "array",
+        "description": "List of created indicators.",
+        "items": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "uuid": "c94f259b-5632-41e0-a189-15801c546fa6",
+  "slug": "create_indicators"
+}

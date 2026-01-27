@@ -1,0 +1,47 @@
+{
+  "arguments": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "ids": {
+        "type": "array",
+        "description": "List of host agent IDs to apply action to.",
+        "items": {
+          "type": "string"
+        }
+      },
+      "action_name": {
+        "type": "string",
+        "description": "Action to perform on the hosts.",
+        "enum": [
+          "contain",
+          "lift_containment",
+          "hide_host",
+          "unhide_host"
+        ]
+      }
+    },
+    "required": [
+      "ids",
+      "action_name"
+    ],
+    "title": "Arguments",
+    "type": "object"
+  },
+  "description": "Take various actions on the hosts in your environment. Contain or lift containment on a host. Delete or restore a host.",
+  "docker_parameters": "perform_host_action",
+  "name": "Perform Host Action",
+  "results": {
+    "type": "object",
+    "properties": {
+      "resources": {
+        "type": "array",
+        "description": "Action result resources.",
+        "items": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "uuid": "54b1456c-b891-4f5a-a0a4-59fe3c940f4e",
+  "slug": "perform_host_action"
+}

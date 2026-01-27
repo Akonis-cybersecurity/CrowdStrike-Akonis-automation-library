@@ -1,0 +1,36 @@
+{
+  "arguments": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "ids": {
+        "type": "array",
+        "description": "List of behavior IDs to retrieve.",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "ids"
+    ],
+    "title": "Arguments",
+    "type": "object"
+  },
+  "description": "Get details on behaviors by providing behavior IDs.",
+  "docker_parameters": "get_behaviors",
+  "name": "Get Behaviors",
+  "results": {
+    "type": "object",
+    "properties": {
+      "behaviors": {
+        "type": "array",
+        "description": "List of behavior details.",
+        "items": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "uuid": "bfa4f389-834f-4357-acd8-5f593d9bd42b",
+  "slug": "get_behaviors"
+}

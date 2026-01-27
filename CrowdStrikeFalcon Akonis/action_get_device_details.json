@@ -1,0 +1,36 @@
+{
+  "arguments": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "ids": {
+        "type": "array",
+        "description": "List of host agent IDs (AIDs) to retrieve details for. Maximum: 5000.",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "ids"
+    ],
+    "title": "Arguments",
+    "type": "object"
+  },
+  "description": "Get details on one or more hosts by providing agent IDs (AID).",
+  "docker_parameters": "get_device_details",
+  "name": "Get Device Details",
+  "results": {
+    "type": "object",
+    "properties": {
+      "devices": {
+        "type": "array",
+        "description": "List of device details.",
+        "items": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "uuid": "9c649c35-d636-471c-8fb2-5985ce4c32a2",
+  "slug": "get_device_details"
+}
