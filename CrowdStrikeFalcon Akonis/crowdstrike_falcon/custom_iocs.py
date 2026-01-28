@@ -19,11 +19,19 @@ class CrowdstrikeActionIOC(CrowdstrikeAction):
             "value": value,
             "type": type,
             "action": self.ACTION,
+            "comment": "",
+            "description": "",
+            "expiration": "",
+            "filename": "",
+            "host_groups": [],
+            "ignore_warnings": True,
             "severity": self.DEFAULT_SEVERITY,
             "platforms": self.DEFAULT_PLATFORMS,
+            "retrodetects": "",
             "tags": self.DEFAULT_TAGS,
             "source": self.DEFAULT_SOURCE,
             "applied_globally": True,
+            "body": {},
         }
 
     def remove_indicators(self, indicators: list):
@@ -78,10 +86,50 @@ class CrowdstrikeActionIOC(CrowdstrikeAction):
             self.log(f"Removing {len(ids_to_remove)} existing indicators from Crowdstrike Falcon")
             next(self.client.delete_indicators(ids_to_remove))
 
-    def create_indicators(self, indicators: list):
+    def create_indicators(
+        self,
+        action: str,
+        applied_globally: bool,
+        comment: str,
+        description: str,
+        expiration: str,
+        filename: str,
+        body: dict,
+        host_groups: list,
+        ignore_warnings: bool,
+        platforms: list,
+        retrodetects: str,
+        severity: str,
+        source: str,
+        tags: list,
+        type: str,
+        value: str,
+    ):
+        indicator = {
+            "action": action,
+            "applied_globally": applied_globally,
+            "comment": comment,
+            "description": description,
+            "expiration": expiration,
+            "filename": filename,
+            "body": body,
+            "host_groups": host_groups,
+            "ignore_warnings": ignore_warnings,
+            "platforms": platforms,
+            "retrodetects": retrodetects,
+            "severity": severity,
+            "source": source,
+            "tags": tags,
+            "type": type,
+            "value": value,
+        }
+        self.log("Pushing 1 new indicator to Crowdstrike Falcon")
+        next(self.client.create_indicators(indicators=[indicator]))
+
+    def create_indicators_batch(self, indicators: list):
         if len(indicators) > 0:
             self.log(f"Pushing {len(indicators)} new indicators to Crowdstrike Falcon")
-            next(self.client.upload_indicators(indicators=indicators))
+            next(self.client.create_indicators(indicators=indicators))
 
 
 class CrowdstrikeActionPushIOCs(CrowdstrikeActionIOC):
@@ -162,7 +210,7 @@ class CrowdstrikeActionPushIOCs(CrowdstrikeActionIOC):
         # Remove revoked indicators before proceeding with adding new ones
         # in case we are near the limit in CrowdStrike
         self.remove_indicators(indicators["revoked"])
-        self.create_indicators(indicators["valid"])
+        self.create_indicators_batch(indicators["valid"])
 
 
 class CrowdstrikeActionPushIOCsBlock(CrowdstrikeActionPushIOCs):
@@ -193,7 +241,8 @@ class CrowdstrikeActionAddIOC(CrowdstrikeActionIOC):
             self.error(f"Type {ioc_type} is not supported. Refer to the documentation for supported types.")
             return
         self.log(f"Pushing {ioc_type} {ioc_value} with action {self.ACTION} to Crowdstrike Falcon")
-        self.create_indicators(indicators=[self.get_payload(value=ioc_value, type=ioc_type)])
+        payload = self.get_payload(value=ioc_value, type=ioc_type)
+        self.create_indicators(**payload)
 
 
 class CrowdstrikeActionBlockIOC(CrowdstrikeActionAddIOC):

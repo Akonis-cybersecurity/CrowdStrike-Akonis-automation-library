@@ -20,16 +20,182 @@
   "docker_parameters": "get_alerts_v2",
   "name": "Get Alerts V2",
   "results": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
+    "title": "Get Alerts V2 Results",
     "properties": {
-      "alerts": {
+      "success": {
+        "type": "boolean"
+      },
+      "parsed": {
+        "type": "object",
+        "description": "Parsed alert fields for SOC triage.",
+        "properties": {
+          "alerts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": { "type": "string" },
+                "indicator_id": { "type": "string" },
+                "composite_id": { "type": "string" },
+                "aggregate_id": { "type": "string" },
+                "cid": { "type": "string" },
+                "agent_id": { "type": "string" },
+                "device_id": { "type": "string" },
+                "status": { "type": "string" },
+                "severity": { "type": "number" },
+                "severity_name": { "type": "string" },
+                "confidence": { "type": "number" },
+                "priority_value": { "type": "number" },
+                "priority_raw_value": { "type": "number" },
+                "tactic": { "type": "string" },
+                "tactic_id": { "type": "string" },
+                "technique": { "type": "string" },
+                "technique_id": { "type": "string" },
+                "mitre_attack": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "tactic": { "type": "string" },
+                      "tactic_id": { "type": "string" },
+                      "technique": { "type": "string" },
+                      "technique_id": { "type": "string" },
+                      "pattern_id": { "type": "number" }
+                    }
+                  }
+                },
+                "timestamp": { "type": "string" },
+                "context_timestamp": { "type": "string" },
+                "created_timestamp": { "type": "string" },
+                "updated_timestamp": { "type": "string" },
+                "crawled_timestamp": { "type": "string" },
+                "cmdline": { "type": "string" },
+                "filename": { "type": "string" },
+                "filepath": { "type": "string" },
+                "md5": { "type": "string" },
+                "sha1": { "type": "string" },
+                "sha256": { "type": "string" },
+                "alleged_filetype": { "type": "string" },
+                "process_id": { "type": "string" },
+                "local_process_id": { "type": "string" },
+                "parent_process_id": { "type": "string" },
+                "tree_id": { "type": "string" },
+                "tree_root": { "type": "string" },
+                "triggering_process_graph_id": { "type": "string" },
+                "child_process_ids": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "process_start_time": { "type": "string" },
+                "process_end_time": { "type": "string" },
+                "user_id": { "type": "string" },
+                "user_name": { "type": "string" },
+                "logon_domain": { "type": "string" },
+                "host_names": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "source_hosts": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "device": {
+                  "type": "object",
+                  "properties": {
+                    "device_id": { "type": "string" },
+                    "hostname": { "type": "string" },
+                    "platform_name": { "type": "string" },
+                    "os_version": { "type": "string" },
+                    "local_ip": { "type": "string" },
+                    "external_ip": { "type": "string" },
+                    "mac_address": { "type": "string" },
+                    "agent_version": { "type": "string" },
+                    "product_type_desc": { "type": "string" }
+                  }
+                },
+                "description": { "type": "string" },
+                "display_name": { "type": "string" },
+                "scenario": { "type": "string" },
+                "objective": { "type": "string" },
+                "product": { "type": "string" },
+                "source_products": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "source_vendors": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "data_domains": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "email_sent": { "type": "boolean" },
+                "show_in_ui": { "type": "boolean" },
+                "cloud_indicator": { "type": "string" },
+                "local_prevalence": { "type": "string" },
+                "global_prevalence": { "type": "string" },
+                "falcon_host_link": { "type": "string" },
+                "comment": { "type": "string" },
+                "comments": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "value": { "type": "string" },
+                      "timestamp": { "type": "string" },
+                      "falcon_user_id": { "type": "string" }
+                    }
+                  }
+                },
+                "parent_details": {
+                  "type": "object",
+                  "properties": {
+                    "filename": { "type": "string" },
+                    "filepath": { "type": "string" },
+                    "cmdline": { "type": "string" },
+                    "process_id": { "type": "string" },
+                    "timestamp": { "type": "string" },
+                    "user_name": { "type": "string" },
+                    "local_process_id": { "type": "string" }
+                  }
+                },
+                "grandparent_details": {
+                  "type": "object",
+                  "properties": {
+                    "filename": { "type": "string" },
+                    "filepath": { "type": "string" },
+                    "cmdline": { "type": "string" },
+                    "process_id": { "type": "string" },
+                    "timestamp": { "type": "string" },
+                    "user_name": { "type": "string" },
+                    "local_process_id": { "type": "string" }
+                  }
+                },
+                "pattern_id": { "type": "number" },
+                "template_instance_id": { "type": "string" },
+                "pattern_disposition": { "type": "number" },
+                "pattern_disposition_description": { "type": "string" }
+              }
+            }
+          }
+        }
+      },
+      "results": {
         "type": "array",
-        "description": "List of alert details.",
+        "description": "Raw API results.",
         "items": {
           "type": "object"
         }
       }
-    }
+    },
+    "required": [
+      "success",
+      "parsed",
+      "results"
+    ]
   },
   "uuid": "6a8cc908-c563-400b-9d60-c78cf30f6abf",
   "slug": "get_alerts_v2"

@@ -20,16 +20,42 @@
   "docker_parameters": "get_online_state",
   "name": "Get Online State",
   "results": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
+    "title": "Get Online State Results",
     "properties": {
-      "states": {
+      "success": {
+        "type": "boolean"
+      },
+      "parsed": {
+        "type": "object",
+        "description": "Parsed online state fields.",
+        "properties": {
+          "states": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": { "type": "string" },
+                "state": { "type": "string" }
+              }
+            }
+          }
+        }
+      },
+      "results": {
         "type": "array",
-        "description": "List of host online state details.",
+        "description": "Raw API results.",
         "items": {
           "type": "object"
         }
       }
-    }
+    },
+    "required": [
+      "success",
+      "parsed",
+      "results"
+    ]
   },
   "uuid": "5f1c83b9-5fd9-4471-9ebb-7eff65ec7db2",
   "slug": "get_online_state"

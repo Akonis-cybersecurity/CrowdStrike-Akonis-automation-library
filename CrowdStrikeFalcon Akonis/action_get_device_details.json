@@ -20,16 +20,122 @@
   "docker_parameters": "get_device_details",
   "name": "Get Device Details",
   "results": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
+    "title": "Get Device Details Results",
     "properties": {
-      "devices": {
+      "success": {
+        "type": "boolean"
+      },
+      "parsed": {
+        "type": "object",
+        "description": "Parsed device fields for SOC triage.",
+        "properties": {
+          "devices": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "device_id": { "type": "string" },
+                "cid": { "type": "string" },
+                "hostname": { "type": "string" },
+                "status": { "type": "string" },
+                "tags": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "groups": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "groups_count": { "type": "number" },
+                "local_ip": { "type": "string" },
+                "external_ip": { "type": "string" },
+                "connection_ip": { "type": "string" },
+                "mac_address": { "type": "string" },
+                "connection_mac_address": { "type": "string" },
+                "platform_name": { "type": "string" },
+                "os_version": { "type": "string" },
+                "os_build": { "type": "string" },
+                "os_product_name": { "type": "string" },
+                "kernel_version": { "type": "string" },
+                "build_number": { "type": "string" },
+                "last_seen": { "type": "string" },
+                "first_seen": { "type": "string" },
+                "last_reboot": { "type": "string" },
+                "agent_version": { "type": "string" },
+                "agent_load_flags": { "type": "string" },
+                "agent_local_time": { "type": "string" },
+                "rtr_state": { "type": "string" },
+                "provision_status": { "type": "string" },
+                "filesystem_containment_status": { "type": "string" },
+                "reduced_functionality_mode": { "type": "string" },
+                "last_login_user": { "type": "string" },
+                "last_login_user_sid": { "type": "string" },
+                "last_login_timestamp": { "type": "string" },
+                "machine_domain": { "type": "string" },
+                "product_type_desc": { "type": "string" },
+                "chassis_type_desc": { "type": "string" },
+                "bios_version": { "type": "string" },
+                "bios_manufacturer": { "type": "string" },
+                "system_manufacturer": { "type": "string" },
+                "system_product_name": { "type": "string" },
+                "serial_number": { "type": "string" },
+                "cpu_vendor": { "type": "string" },
+                "cpu_signature": { "type": "string" },
+                "pointer_size": { "type": "string" },
+                "meta_version": { "type": "string" },
+                "meta_version_string": { "type": "string" },
+                "policies_count": { "type": "number" },
+                "policies": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "policy_id": { "type": "string" },
+                      "policy_type": { "type": "string" },
+                      "applied": { "type": "boolean" },
+                      "applied_date": { "type": "string" },
+                      "assigned_date": { "type": "string" },
+                      "settings_hash": { "type": "string" }
+                    }
+                  }
+                },
+                "device_policies_count": { "type": "number" },
+                "device_policies": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "policy_type": { "type": "string" },
+                      "policy_id": { "type": "string" },
+                      "applied": { "type": "boolean" },
+                      "applied_date": { "type": "string" },
+                      "assigned_date": { "type": "string" },
+                      "settings_hash": { "type": "string" },
+                      "rule_set_id": { "type": "string" },
+                      "uninstall_protection": { "type": "string" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "results": {
         "type": "array",
-        "description": "List of device details.",
+        "description": "Raw API results.",
         "items": {
           "type": "object"
         }
       }
-    }
+    },
+    "required": [
+      "success",
+      "parsed",
+      "results"
+    ]
   },
   "uuid": "9c649c35-d636-471c-8fb2-5985ce4c32a2",
   "slug": "get_device_details"
