@@ -641,7 +641,7 @@ def test_create_indicators():
         sample_data = action.get_payload(
             type="sha256", value="0451b9c358b1404717f5060aea5711327cf169cd4c5648f5ac23f1a1fb740716"
         )
-        result = action.create_indicators([sample_data])
+        result = action.create_indicators_batch([sample_data])
         assert result is None
 
 
