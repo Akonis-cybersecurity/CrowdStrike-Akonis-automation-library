@@ -242,6 +242,20 @@ class CrowdstrikeActionAddIOC(CrowdstrikeActionIOC):
             return
         self.log(f"Pushing {ioc_type} {ioc_value} with action {self.ACTION} to Crowdstrike Falcon")
         payload = self.get_payload(value=ioc_value, type=ioc_type)
+
+        # Override with optional arguments if provided
+        if "severity" in arguments:
+            payload["severity"] = arguments["severity"]
+        if "platforms" in arguments:
+            payload["platforms"] = arguments["platforms"]
+        if "action" in arguments:
+            payload["action"] = arguments["action"]
+
+        host_groups = arguments.get("host_groups", [])
+        if host_groups:
+            payload["host_groups"] = host_groups
+            payload["applied_globally"] = False
+
         self.create_indicators(**payload)
 
 

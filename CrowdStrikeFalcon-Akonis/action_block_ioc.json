@@ -9,6 +9,35 @@
       "type": {
         "description": "Type of the IOC to block: md5, sha256",
         "type": "string"
+      },
+      "severity": {
+        "description": "Severity level of the IOC: none, informational, low, medium, high, critical",
+        "type": "string",
+        "enum": ["none", "informational", "low", "medium", "high", "critical"],
+        "default": "medium"
+      },
+      "platforms": {
+        "description": "List of platforms to apply the IOC to",
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": ["windows", "mac", "linux"]
+        },
+        "default": ["windows"]
+      },
+      "host_groups": {
+        "description": "List of host group IDs to target. If empty, the IOC is applied globally",
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "default": []
+      },
+      "action": {
+        "description": "Action to take when the IOC is detected: no_action, allow, prevent_no_ui, prevent, detect",
+        "type": "string",
+        "enum": ["no_action", "allow", "prevent_no_ui", "prevent", "detect"],
+        "default": "detect"
       }
     },
     "required": [
