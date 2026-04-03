@@ -124,6 +124,7 @@ class CrowdstrikeActionIOC(CrowdstrikeAction):
             "type": type,
             "value": value,
         }
+        indicator = {k: v for k, v in indicator.items() if v is not None and v != "" and v != [] and v != {}}
         self.log("Pushing 1 new indicator to Crowdstrike Falcon")
         next(self.client.create_indicators(indicators=[indicator]))
 
