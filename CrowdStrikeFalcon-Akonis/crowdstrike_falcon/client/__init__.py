@@ -1,3 +1,4 @@
+import logging
 from collections.abc import Generator
 from posixpath import join as urljoin
 from typing import Any
@@ -6,6 +7,8 @@ import requests
 from requests.auth import AuthBase
 from requests.exceptions import HTTPError
 from requests_ratelimiter import LimiterAdapter
+
+logger = logging.getLogger(__name__)
 
 from crowdstrike_falcon.client.auth import CrowdStrikeFalconApiAuthentication
 from crowdstrike_falcon.client.retry import Retry
@@ -66,6 +69,8 @@ class ApiClient(requests.Session):
             response = self.request(method=method, url=url, params=new_params, **kwargs)
 
             # raise exception according the status code
+            if not response.ok:
+                logger.error("CrowdStrike API error response: %s", response.text)
             response.raise_for_status()
 
             content = response.json()
