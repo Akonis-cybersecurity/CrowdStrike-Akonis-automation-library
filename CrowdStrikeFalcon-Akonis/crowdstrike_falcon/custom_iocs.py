@@ -1,3 +1,4 @@
+import json
 from collections import defaultdict
 from datetime import date, timedelta
 from posixpath import join as urljoin
@@ -247,7 +248,10 @@ class CrowdstrikeActionAddIOC(CrowdstrikeActionIOC):
         if "severity" in arguments:
             payload["severity"] = arguments["severity"]
         if "platforms" in arguments:
-            payload["platforms"] = arguments["platforms"]
+            platforms = arguments["platforms"]
+            if isinstance(platforms, str):
+                platforms = [platforms]
+            payload["platforms"] = platforms
         if "action" in arguments:
             payload["action"] = arguments["action"]
 
@@ -256,6 +260,7 @@ class CrowdstrikeActionAddIOC(CrowdstrikeActionIOC):
             payload["host_groups"] = host_groups
             payload["applied_globally"] = False
 
+        self.log(f"Payload sent to CrowdStrike: {json.dumps(payload, indent=2)}", level="debug")
         self.create_indicators(**payload)
 
 
