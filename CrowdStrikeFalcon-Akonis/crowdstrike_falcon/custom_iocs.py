@@ -260,7 +260,7 @@ class CrowdstrikeActionAddIOC(CrowdstrikeActionIOC):
 
 
 class CrowdstrikeActionBlockIOC(CrowdstrikeActionAddIOC):
-    SUPPORTED_TYPES = ["md5", "sha256"]
+    SUPPORTED_TYPES = ["md5", "sha256", "ipv4", "ipv6"]
     ACTION = "prevent"
 
 

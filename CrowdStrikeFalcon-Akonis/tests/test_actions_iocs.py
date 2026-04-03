@@ -782,7 +782,7 @@ def test_run_monitor_ioc():
 
 def test_run_block_ioc_type_not_supported():
     action = configured_action(CrowdstrikeActionBlockIOC)
-    action.run({"value": "77.91.78.118", "type": "ipv4"})
+    action.run({"value": "some-unsupported-value", "type": "url"})
     assert action._error is not None
 
 
